@@ -32,7 +32,7 @@ export async function createBet(formData: FormData) {
   }
 
   const { error } = await supabase
-    .from('Bet')
+    .from('bets')
     .insert({
       user_id: user.id,
       source: 'personal',
@@ -69,7 +69,7 @@ export async function updateBet(id: string, formData: FormData) {
   }
 
   const { error } = await supabase
-    .from('Bet')
+    .from('bets')
     .update({
       statement: parsed.data.statement,
       probability: parsed.data.probability,
@@ -106,7 +106,7 @@ export async function resolveBet(id: string, formData: FormData) {
   const outcome = parsed.data.outcome === 'true'
 
   const { error } = await supabase
-    .from('Bet')
+    .from('bets')
     .update({
       status: 'resolved',
       outcome,
@@ -134,7 +134,7 @@ export async function deleteBet(id: string) {
   }
 
   const { error } = await supabase
-    .from('Bet')
+    .from('bets')
     .delete()
     .eq('id', id)
     .eq('user_id', user.id)

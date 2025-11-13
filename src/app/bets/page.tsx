@@ -13,7 +13,7 @@ async function getBets() {
   }
 
   const { data: bets, error } = await supabase
-    .from('Bet')
+    .from('bets')
     .select('*')
     .eq('user_id', user.id)
     .order('created_at', { ascending: false })

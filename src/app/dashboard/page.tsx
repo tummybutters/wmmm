@@ -30,7 +30,7 @@ async function getDashboardData() {
   sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7)
 
   const { data: entriesData, error: entriesError } = await supabase
-    .from('Entry')
+    .from('entries')
     .select('*')
     .eq('user_id', user.id)
     .gte('created_at', sevenDaysAgo.toISOString())

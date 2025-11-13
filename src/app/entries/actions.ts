@@ -28,7 +28,7 @@ export async function createEntry(formData: FormData) {
   }
 
   const { error } = await supabase
-    .from('Entry')
+    .from('entries')
     .insert({
       user_id: user.id,
       kind: parsed.data.kind,
@@ -63,7 +63,7 @@ export async function updateEntry(id: string, formData: FormData) {
   }
 
   const { error } = await supabase
-    .from('Entry')
+    .from('entries')
     .update({
       kind: parsed.data.kind,
       text: parsed.data.text,
@@ -90,7 +90,7 @@ export async function deleteEntry(id: string) {
   }
 
   const { error } = await supabase
-    .from('Entry')
+    .from('entries')
     .delete()
     .eq('id', id)
     .eq('user_id', user.id)
