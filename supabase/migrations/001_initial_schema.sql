@@ -43,7 +43,10 @@ do $$
 begin
   if exists (select from pg_tables where schemaname = 'public' and tablename = 'User') then
     insert into public.users (id, email, created_at)
-    select id, email, created_at
+    select 
+      id::uuid,  -- Cast text to uuid
+      email, 
+      created_at
     from public."User"
     on conflict (id) do nothing;
     
@@ -56,7 +59,12 @@ do $$
 begin
   if exists (select from pg_tables where schemaname = 'public' and tablename = 'Entry') then
     insert into public.entries (id, user_id, kind, text, created_at)
-    select id, user_id, kind, text, created_at
+    select 
+      id::uuid,       -- Cast text to uuid
+      user_id::uuid,  -- Cast text to uuid
+      kind, 
+      text, 
+      created_at
     from public."Entry"
     on conflict (id) do nothing;
     
@@ -69,7 +77,16 @@ do $$
 begin
   if exists (select from pg_tables where schemaname = 'public' and tablename = 'Bet') then
     insert into public.bets (id, user_id, source, statement, probability, status, outcome, created_at, resolved_at)
-    select id, user_id, source, statement, probability, status, outcome, created_at, resolved_at
+    select 
+      id::uuid,       -- Cast text to uuid
+      user_id::uuid,  -- Cast text to uuid
+      source, 
+      statement, 
+      probability, 
+      status, 
+      outcome, 
+      created_at, 
+      resolved_at
     from public."Bet"
     on conflict (id) do nothing;
     
