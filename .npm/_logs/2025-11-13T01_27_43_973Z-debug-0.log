@@ -1,0 +1,18 @@
+0 verbose cli /opt/homebrew/Cellar/node/23.10.0_1/bin/node /opt/homebrew/bin/npm
+1 info using npm@10.9.2
+2 info using node@v23.10.0
+3 silly config load:file:/opt/homebrew/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/tommybutcher/wmmm/.npmrc
+5 silly config load:file:/opt/homebrew/etc/npmrc
+6 verbose title npm uninstall openai dayjs
+7 verbose argv "uninstall" "openai" "dayjs"
+8 verbose logfile logs-max:10 dir:/Users/tommybutcher/wmmm/.npm/_logs/2025-11-13T01_27_43_973Z-
+9 verbose logfile /Users/tommybutcher/wmmm/.npm/_logs/2025-11-13T01_27_43_973Z-debug-0.log
+10 silly logfile done cleaning log files
+11 verbose cwd /Users/tommybutcher/wmmm
+12 verbose os Darwin 25.1.0
+13 verbose node v23.10.0
+14 verbose npm  v10.9.2
+15 verbose exit 1
+16 verbose code 1
+17 error A complete log of this run can be found in: /Users/tommybutcher/wmmm/.npm/_logs/2025-11-13T01_27_43_973Z-debug-0.log
