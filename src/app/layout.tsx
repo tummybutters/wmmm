@@ -25,8 +25,8 @@ export default async function RootLayout({
   const { data: { user } } = await supabase.auth.getUser();
   
   // Check if we're on the landing page
-  const headersList = headers();
-  const pathname = headersList.get('x-pathname') || '';
+  const headersList = await headers();
+  const pathname = headersList.get('x-pathname') ?? '';
   const isLandingPage = pathname === '/';
 
   return (
